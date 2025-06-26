@@ -34,5 +34,5 @@ jobs:
           url: ${{ secrets.CONJUR_URL }}
           account: conjur
           authn_id: ${{ secrets.CONJUR_AUTHN_ID }}
-          secrets: data/vault/github/gh_cr/username;data/vault/github/gh_cr/password
+          secrets: data-vault-github-gh_cr-username;data-vault-github-gh_cr-password
       # ...
