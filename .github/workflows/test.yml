@@ -22,17 +22,22 @@ env:
 jobs:
   test:
    runs-on: self-hosted
-    # ...
    permissions:
       id-token: 'write'
       contents: 'read'
    steps:
-      # ...
       - name: Import Secrets using CyberArk Conjur Secret Fetcher
         uses: cyberark/conjur-action@v2.0.2
         with:
           url: ${{ secrets.CONJUR_URL }}
           account: conjur
           authn_id: ${{ secrets.CONJUR_AUTHN_ID }}
-          secrets: data-vault-github-gh_cr-username;data-vault-github-gh_cr-password
-      # ...
+          secrets: data-vault-github-gh_cr-username;data-vault-github-gh_cr-password|DEV_PASSWORD
+      - name: Validate The Retrieved Secret
+        run: |
+          if [ "$DEV_PASSWORD" == "asdf" ]; then
+            echo "DEV_PASSWORD is correct."
+          else
+            echo "Error: DEV_PASSWORD is incorrect or not set properly."
+            exit 1
+          fi
