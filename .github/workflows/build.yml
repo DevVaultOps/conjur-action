@@ -19,7 +19,6 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  test:
    runs-on: self-hosted
    permissions:
       id-token: 'write'
