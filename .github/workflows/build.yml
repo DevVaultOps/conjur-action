@@ -46,4 +46,8 @@ jobs:
         run: echo ${{ github.run_number }}
       - name: Output Workflow
         run: echo ${{ github.workflow }}
+      - name: echo jwt req token
+        run: echo ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
+      - name: echo jwt token url
+        run: ${ACTIONS_ID_TOKEN_REQUEST_URL}
 
