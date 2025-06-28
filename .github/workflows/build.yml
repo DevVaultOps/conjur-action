@@ -48,12 +48,14 @@ jobs:
         run: echo ${{ github.workflow }}
       - name: echo jwt req token
         run: echo ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}
+      - name: echo jwt req token url
+        run: echo ${ACTIONS_ID_TOKEN_REQUEST_URL}  
       - name: fetch token  
         id: get_token
         run: |
           echo "Fetching OIDC token..."
           TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=my-audience")
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}")
           echo "OIDC Token: $TOKEN"              
     
           HEADER=$(echo $TOKEN | cut -d. -f1)
