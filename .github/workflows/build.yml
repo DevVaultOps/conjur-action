@@ -19,6 +19,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+  release:
    runs-on: self-hosted
    permissions:
       id-token: 'write'
