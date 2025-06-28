@@ -66,3 +66,8 @@ jobs:
           echo "JWT PAYLOAD: $PAYLOAD"
           echo "JWT SIG: $SIG"
 
+      - name: Debug OIDC Claims
+        uses: github/actions-oidc-debugger@main
+        with:
+          audience: '${{ github.server_url }}/${{ github.repository_owner }}'
+
