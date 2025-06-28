@@ -54,5 +54,13 @@ jobs:
           echo "Fetching OIDC token..."
           TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
             "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=my-audience")
-          echo "OIDC Token: $TOKEN"
+          echo "OIDC Token: $TOKEN"              
+    
+          HEADER=$(echo $TOKEN | cut -d. -f1)
+          PAYLOAD=$(echo $TOKEN | cut -d. -f2)
+          SIG=$(echo $TOKEN | cut -d. -f3)
+
+          echo "JWT HEADER: $HEADER"
+          echo "JWT PAYLOAD: $PAYLOAD"
+          echo "JWT SIG: $SIG"
 
