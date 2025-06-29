@@ -30,7 +30,7 @@ jobs:
         with:
           url: ${{ secrets.CONJUR_URL }}
           account: conjur
-          authn_id: ${{ secrets.CONJUR_AUTHN_ID }}
+          authn_id: ${{ secrets.CONJUR_AUTHN_ID_DEVVAULTOPS }}
           secrets: data/vault/github/gh_cr/username;data/vault/github/gh_cr/password|DEV_PASSWORD
       - name: Validate The Retrieved Secret
         run: |
