@@ -27,14 +27,14 @@ jobs:
    steps:
       - name: Check CONJUR_AUTHN_ID_TEST_GITHUB value
         run: |
-          if [ "$CONJUR_AUTHN_ID" == "host/data/apjisppaul03/devops/github-apps/release" ]; then
+          if [ "$CONJUR_AUTHN_ID" == "host/data/apjisppaul03/devops/github-apps/test_github" ]; then
             echo "CONJUR_AUTHN_ID is correct."
           else
             echo "Error: CONJUR_AUTHN_ID is incorrect or not set properly."
             exit 1
           fi
           env:
-            CONJUR_AUTHN_ID: ${{ secrets.CONJUR_AUTHN_ID }}
+            CONJUR_AUTHN_ID: ${{ secrets.CONJUR_AUTHN_ID_TEST_GITHUB }}
       - name: Import Secrets using CyberArk Conjur Secret Fetcher
         uses: cyberark/conjur-action@v2.0.12
         with:
