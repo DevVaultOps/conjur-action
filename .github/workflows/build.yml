@@ -27,7 +27,7 @@ jobs:
    steps:
       - name: Check CONJUR_AUTHN_ID_TEST_GITHUB value
         run: |
-          if [ "$CONJUR_AUTHN_ID" == "/data/apjisppaul03/devops/github-apps/release" ]; then
+          if [ "$CONJUR_AUTHN_ID" == "host/data/apjisppaul03/devops/github-apps/release" ]; then
             echo "CONJUR_AUTHN_ID is correct."
           else
             echo "Error: CONJUR_AUTHN_ID is incorrect or not set properly."
